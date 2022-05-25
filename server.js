@@ -18,7 +18,7 @@ const location = require('./Routes/location');
 const user = require('./Routes/user');
 //connect database
 mongoose
-  .connect(process.env.DATABASEPATH, {
+  .connect("mongodb+srv://root:root@cluster0.v2s74.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -44,8 +44,8 @@ app.use('/api', location);
 app.use('/api', user);
 
 //port
-port = process.env.PORT;
+port = "2002";
 //start the server
-app.listen(port, () => {
+app.listen("2002", () => {
   console.log('SERVER CONNECTED');
 });

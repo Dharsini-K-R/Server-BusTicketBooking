@@ -30,7 +30,7 @@ exports.login = (req, res) => {
     }
 
     //generate token
-    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ _id: user._id }, "booktickets");
 
     //put token in cookie
     res.cookie('token', token, { expire: new Date() + 9999 });
@@ -72,7 +72,7 @@ exports.logout = (req, res) => {
 
 //middleware
 exports.isSignedIn = expressjwt({
-  secret: process.env.JWT_SECRET,
+  secret: "booktickets",
   userProperty: 'auth',
   algorithms: ['HS256'],
 });
